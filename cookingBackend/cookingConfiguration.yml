@@ -1,0 +1,22 @@
+database:
+  driverClass: com.mysql.jdbc.Driver
+  user: root
+  password: nbuser
+  url: jdbc:mysql://localhost:3306/cookingapp
+  properties:
+    charset: UTF-8
+    maxWaitForConnection: 1s
+    validationQuery: "/* MyService Healt Check */ SELECT 1"
+    minSize: 8
+    maxSize: 32
+    checkConnectionWhileIdle: false
+    checkConnectionHealthWhenIdleFor: 10s
+    closeconnectionIfIdleFor: 1 minute
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 9000
+  adminConnectors:
+  - type: http
+    port: 9001
