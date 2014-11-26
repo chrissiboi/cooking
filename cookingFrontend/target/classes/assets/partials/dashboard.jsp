@@ -1,7 +1,8 @@
 
 
 <%
-    if(true){
+    Long priv = (Long) session.getAttribute("privileges");
+    if(priv != null && priv == 1){
 %>
 
 <p>Underneath a list of indexes:</p>
@@ -16,8 +17,11 @@
         </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="user in users | orderBy: 'name'">
-        <td ng-repeat="ele in user">{{ele}}</td>
+    <tr ng-repeat="user in users | orderBy: 'ID'">
+        <td>{{user.username}}</td>
+        <td>{{user.firstname}}</td>
+        <td>{{user.lastname}}</td>
+        <td>{{user.email}}</td>
         <td><button class="btn-xs btn-danger" ng-click="deleteUser(user)">x</button></td>
     </tr>
     </tbody>
@@ -31,5 +35,10 @@
     </li>
 </ul>
 <%
+}
+else{
+    out.print("<script>"
+                + "window.location.href = '/'"
+            + "</script>");
 }
 %>

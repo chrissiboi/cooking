@@ -1,17 +1,9 @@
-'use-strict'
+'use-strict';
 
 var sendForm = angular.module('sendForm', []);
 
-sendForm.factory('UserSaveResources', function($resource){
-    return $resource('/api/users/save', {}, {});
-});
-
-sendForm.factory('UserLoginResources', function($resource){
-   return $resource('/api/users/login', {}, {});
-});
-
-sendForm.controller('SignUpFormCtrl', ['$scope', 'UserSaveResources', '$location',
-    function($scope, UserSaveResources){
+sendForm.controller('SignUpFormCtrl', ['$scope', 'Resources',
+    function($scope, res){
         $scope.error = "";
         $scope.formData = {};
         $scope.registrationResult = '';
@@ -20,9 +12,9 @@ sendForm.controller('SignUpFormCtrl', ['$scope', 'UserSaveResources', '$location
         $scope.redirectToHome = function(){
             if($scope.backToHome)
                 window.location.href = '/';
-        }
+        };
         $scope.sending = function() {
-            UserSaveResources.save($scope.formData).$promise.then(function(data){
+            res.saveUser().save($scope.formData).$promise.then(function(data){
                     $scope.registrationResult = '<i class="icon-check iconColorGreen icon2x"></i> Your registration was successful!';
                     $scope.backToHome = true;
                 },
@@ -35,8 +27,8 @@ sendForm.controller('SignUpFormCtrl', ['$scope', 'UserSaveResources', '$location
         };
     }]);
 
-sendForm.controller('LoginCtrl', ['$scope', 'UserLoginResources', '$location', '$route', '$http', '$sce',
-    function($scope, UserLoginResources, $location, $route, $http){
+sendForm.controller('LoginCtrl', ['$scope', 'Resources', '$location', '$route', '$http', '$sce',
+    function($scope, res, $location, $route, $http){
         $scope.formData = {};
         $scope.errorMsg = "";
         $scope.logOut = function(){
@@ -48,7 +40,7 @@ sendForm.controller('LoginCtrl', ['$scope', 'UserLoginResources', '$location', '
             });
         };
         $scope.login = function(){
-            UserLoginResources.save($scope.formData).$promise.then(function(data){
+            res.loginUser().save($scope.formData).$promise.then(function(data){
                 console.log(data);
                 $http.post('/login', {user: data}).
                     success(function(userData){
