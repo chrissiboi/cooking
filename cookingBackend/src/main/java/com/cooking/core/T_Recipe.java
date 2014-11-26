@@ -20,6 +20,17 @@ public class T_Recipe implements Serializable{
 
     @Column(name="description", nullable = false)
     private String description;
+    
+    @Column(name="f_user_id")
+    private long f_user_id;
+
+    public long getF_user_id() {
+        return f_user_id;
+    }
+
+    public void setF_user_id(long f_user_id) {
+        this.f_user_id = f_user_id;
+    }
 
     public long getId() {
         return id;

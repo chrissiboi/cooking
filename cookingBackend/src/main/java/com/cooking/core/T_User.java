@@ -38,6 +38,9 @@ public class T_User implements Serializable {
     @Column(name = "birthday", nullable = true)
     private Date birthday;
 
+    @Column(name = "userLevel", nullable = false)
+    private Integer userLevel;
+    
     public long getId() {
         return id;
     }
@@ -114,5 +117,13 @@ public class T_User implements Serializable {
         this.birthday = birthday;
         if(birthday == null)
             this.birthday = new Date(100);
+    }
+
+    public Integer getPrivileges() {
+        return userLevel;
+    }
+
+    public void setPrivileges(Integer privileges) {
+        this.userLevel = privileges;
     }
 }

@@ -48,9 +48,9 @@ public class RecipeResource extends HttpServlet{
     @POST
     @Path("/save")
     @UnitOfWork
-    public Response saveRecipe(T_Recipe TRecipe) throws Exception{
+    public Response saveRecipe(T_Recipe recipe) throws Exception{
         logger.info("Save recipe!");
-        daorecipe.save(TRecipe);
+        daorecipe.save(recipe);
         return Response.status(200).build();
     }
 

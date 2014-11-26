@@ -43,9 +43,10 @@ public class DAOUser extends AbstractDAO<T_User> {
         return query.list();
     }
 
-    public Response saveUser(T_User TUser) throws Exception{
-        if(!userExists(TUser.getUsername(), TUser.getEmail())) {
-            persist(TUser);
+    public Response saveUser(T_User user) throws Exception{
+        if(!userExists(user.getUsername(), user.getEmail())) {
+            user.setPrivileges(0);
+            persist(user);
             return Response.status(200).build();
         }
         else
