@@ -1,4 +1,4 @@
-<div class="col-md-6 col-md-offset-3" ng-click="redirectToHome()">
+<div class="col-md-6 col-md-offset-3">
     <div class="page-header">
         <h1>
             Please fill out the form.

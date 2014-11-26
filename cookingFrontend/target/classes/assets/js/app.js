@@ -29,6 +29,10 @@ cooking.factory('Resources', function($resource){
 cooking.controller('ShowUserCtrl', ['$scope', '$http', 'Resources', function ($scope, $http, res) {
     $scope.users = {};
 
+    $scope.test = function(){
+        console.log("asd");
+    };
+    
     $scope.initIndexes = function () {
         res.getUsers().query().$promise.then(function(data){
             $scope.users = data;
@@ -54,7 +58,7 @@ cooking.config(function($routeProvider) {
     $routeProvider.when('/home', {templateUrl: '/assets/partials/home.jsp'});
     $routeProvider.when('/info', {templateUrl: '/assets/partials/info.jsp', controller: 'LoginCtrl'});
     $routeProvider.when('/regestry', {templateUrl: '/assets/partials/regestry.jsp', controller: 'SignUpFormCtrl'});
-    $routeProvider.when('/profile', {templateUrl: '/assets/partials/profile.jsp', controller: 'RecipeCtrl'});
+    $routeProvider.when('/profile', {templateUrl: '/assets/partials/profile.jsp', controller: 'ShowUserCtrl'});
     $routeProvider.when('/tests', {templateUrl: '/assets/partials/test.jsp'});
     $routeProvider.when('/dashboard', {templateUrl: '/assets/partials/dashboard.jsp', controller: 'ShowUserCtrl'});
     $routeProvider.otherwise({redirectTo: '/home'});

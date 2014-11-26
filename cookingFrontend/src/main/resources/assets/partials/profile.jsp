@@ -21,7 +21,7 @@ else{
 %>
 <div class="col-md-6">
     <h2>Welcome to your Profilepage</h2>
-    <form method="post" name="recipeForm" ng-submit="test()">
+    <form method="post" novalidate name="recipeForm" ng-submit="test()">
         <div class="form-group">
             <label>Title</label>
             <input type="text" name="title" class="form-control" ng-model="recipe.title">
