@@ -39,6 +39,10 @@ sendForm.controller('LoginCtrl', ['$scope', 'Resources', '$location', '$route', 
 
             });
         };
+        
+        $scope.test = function(){
+            console.log("test");
+        };
         $scope.login = function(){
             res.loginUser().save($scope.formData).$promise.then(function(data){
                 console.log(data);

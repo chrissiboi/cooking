@@ -1,7 +1,15 @@
 package com.cooking.core;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.File;
+import java.io.IOException;
 import javax.persistence.*;
 import java.io.Serializable;
+import javax.imageio.ImageIO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Chris on 24.11.2014.
@@ -11,6 +19,7 @@ import java.io.Serializable;
 @Table(name="T_Recipes")
 public class T_Recipe implements Serializable{
 
+    private static final Logger logger = LoggerFactory.getLogger(T_Recipe.class);
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,6 +29,9 @@ public class T_Recipe implements Serializable{
 
     @Column(name="description", nullable = false)
     private String description;
+    
+    @Column(name="picture", nullable = true, columnDefinition="mediumblob")
+    private byte[] picture;
     
     @Column(name="f_user_id")
     private long f_user_id;
@@ -40,11 +52,11 @@ public class T_Recipe implements Serializable{
         this.id = id;
     }
 
-    public String getRecipename() {
+    public String getName() {
         return name;
     }
 
-    public void setRecipename(String recipename) {
+    public void setName(String recipename) {
         this.name = recipename;
     }
 
@@ -54,5 +66,13 @@ public class T_Recipe implements Serializable{
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getPicture() {
+        return picture;
+    }
+
+    public void setPicture(byte[] picture){
+        this.picture = picture;
     }
 }

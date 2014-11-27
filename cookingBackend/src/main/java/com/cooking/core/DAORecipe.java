@@ -1,11 +1,14 @@
 package com.cooking.core;
 
+import com.cooking.resources.UserResource;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 
 import javax.ws.rs.core.Response;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by Chris on 24.11.2014.
@@ -13,6 +16,7 @@ import java.util.List;
 public class DAORecipe extends AbstractDAO<T_Recipe> implements TableEntity<T_Recipe>{
 
 
+    private static final Logger logger = LoggerFactory.getLogger(DAORecipe.class);
     private String className;
     /**
      * Creates a new DAO with a given session provider.
@@ -49,6 +53,7 @@ public class DAORecipe extends AbstractDAO<T_Recipe> implements TableEntity<T_Re
     @Override
     public Response save(T_Recipe recipe) {
         persist(recipe);
+        logger.info("Recipe saved");
         return Response.status(200).build();
     }
 
