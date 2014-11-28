@@ -2,6 +2,19 @@
 
 var userProfile = angular.module('userProfile', []);
 
+userProfile.directive('updateUploadPictures', function(){
+   return {
+        scope: true,
+        link: function(scope, el, attr){
+            el.bind('chang', function(event){
+                var files = event.target.files;
+                for ( var i = 0; i < files.length; i++){
+                    scope.$emit("picturesSelected", {file: files[i]});
+                }
+            });
+        }
+   };
+});
 userProfile.controller('RecipeCtrl', ['$scope', 'Resources', function($scope, res){
         
         $scope.recipes = {};
@@ -18,13 +31,8 @@ userProfile.controller('RecipeCtrl', ['$scope', 'Resources', function($scope, re
             });
         };
         
-        $scope.setFile = function(element){
-            $scope.$apply(function(scope){
-                console.log('files: ', element.files);
-                $scope.recipe.picture = element.files[0].name;
-                console.log($scope.recipe.picture);
-                $scope.progressVisible = false;
-            });
+        $scope.setPictures = function(element){
+
         };
         
         $scope.uploadFile = function(){
