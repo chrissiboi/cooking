@@ -15,7 +15,7 @@ public class Main {
         Server server = new Server(8080);
         WebAppContext context = new WebAppContext();
 
-        context.setContextPath("/");ö
+        context.setContextPath("/");
         context.setDescriptor(webappDirLocation + "/WEB-INF/web.xml");
         context.setResourceBase(webappDirLocation);
 
