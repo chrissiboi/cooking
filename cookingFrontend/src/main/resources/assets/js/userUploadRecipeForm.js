@@ -15,6 +15,7 @@ userProfile.directive('updateUploadPictures', function(){
         }
    };
 });
+
 userProfile.controller('RecipeCtrl', ['$scope', 'Resources', function($scope, res){
         
         $scope.recipes = {};

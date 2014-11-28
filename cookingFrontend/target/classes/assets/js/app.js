@@ -109,7 +109,7 @@ cooking.config(function($routeProvider) {
     $routeProvider.when('/home', {templateUrl: '/assets/partials/home.jsp'});
     $routeProvider.when('/info', {templateUrl: '/assets/partials/info.jsp', controller: 'LoginCtrl'});
     $routeProvider.when('/regestry', {templateUrl: '/assets/partials/regestry.jsp', controller: 'SignUpFormCtrl'});
-    $routeProvider.when('/profile', {templateUrl: '/assets/partials/profile.jsp', controller: 'RecipeCtrl'});
+    $routeProvider.when('/uploadRecipe', {templateUrl: '/assets/partials/userUploadRecipeForm.jsp', controller: 'RecipeCtrl'});
     $routeProvider.when('/tests', {templateUrl: '/assets/partials/test.jsp', controller: 'Ctrl'});
     $routeProvider.when('/dashboard', {templateUrl: '/assets/partials/dashboard.jsp', controller: 'ShowUserCtrl'});
     $routeProvider.otherwise({redirectTo: '/home'});

@@ -32,7 +32,7 @@ else{
         </div>
         <div class='form-group'>
             <label>Select Pictures</label>
-            <input type='file' onchange="angular.element(this).scope.setPictures()"
+            <input type='file' onchange="angular.element(this).$scope.setPictures()"
                    ng-model-instant name="pictureUpload">
         </div>
         <button value='save' type='submit' class="btn">Save Recipe</button>

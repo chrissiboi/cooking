@@ -18,13 +18,8 @@ userProfile.controller('RecipeCtrl', ['$scope', 'Resources', function($scope, re
             });
         };
         
-        $scope.setFile = function(element){
-            $scope.$apply(function(scope){
-                console.log('files: ', element.files);
-                $scope.recipe.picture = element.files[0].name;
-                console.log($scope.recipe.picture);
-                $scope.progressVisible = false;
-            });
+        $scope.setPictures = function(element){
+
         };
         
         $scope.uploadFile = function(){

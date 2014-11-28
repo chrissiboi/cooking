@@ -1,4 +1,3 @@
-<%@ page import="java.util.Enumeration" %>
 <%@ page language="java" contentType="text/html; charset=US-ASCII"
          pageEncoding="US-ASCII" %>
 <!DOCTYPE html>
@@ -67,7 +66,7 @@
     <script src="/assets/js/libs/angular-resource-1.1.5.js"></script>
     <script src="/assets/js/libs/angular-resource-1.2.0rc1.js"></script>
     <script src="/assets/js/libs/bootstrap.min.js"></script>
-    <script src="/assets/js/userProfile.js"></script>
+    <script src="/assets/js/userUploadRecipeForm.js"></script>
     <script src="/assets/js/sendForm.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular-sanitize.min.js"></script>

@@ -26,13 +26,13 @@ else{
             <input type="text" name="name" class='form-control' ng-model="recipe.title">
         </div>
         <div class="form-group">
-            <textarea name="description" class='form-control' ng-model="recipe.description" rows="30">
+            <textarea name="description" class='form-control' ng-model="recipe.description" rows="20">
                 
             </textarea>
         </div>
         <div class='form-group'>
             <label>Select Pictures</label>
-            <input type='file' onchange="angular.element(this).scope.setPictures()"
+            <input type='file' update-Upload-Pictures
                    ng-model-instant name="pictureUpload">
         </div>
         <button value='save' type='submit' class="btn">Save Recipe</button>
